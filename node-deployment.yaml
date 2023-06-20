@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodebackend-deployment
+  labels:
+    app: nodebackend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodebackend
+  template:
+    metadata:
+      labels:
+        app: nodebackend
+    spec:
+      containers:
+        - name: nodebackend
+          image: sreekanthpv12/nodebackend:latest
+          ports:
+            - containerPort: 8000
+
